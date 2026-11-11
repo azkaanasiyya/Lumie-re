@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { Brand } from "./brand";
 import { navigation } from "@/lib/navigation";
@@ -50,11 +50,14 @@ export function Navbar() {
     dialog.current?.close();
   }, [open]);
   const links = (mobile = false) =>
-    navigation.map((label) => (
+    navigation.map((label, index) => (
       <a
         key={label}
         href={label === "Home" ? "#home" : `#${label.toLowerCase()}`}
         aria-current={label === "Home" ? "page" : undefined}
+        style={
+          mobile ? ({ "--menu-item-index": index } as CSSProperties) : undefined
+        }
         onClick={() => mobile && setOpen(false)}
       >
         {label}
