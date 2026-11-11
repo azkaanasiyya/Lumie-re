@@ -35,8 +35,17 @@ export function Words() {
   return (
     <section className="words" aria-label="Our philosophy">
       <picture className="words-image">
-        <source media="(max-width: 767px)" srcSet="/images/words-mobile.webp" />
-        <Image src="/images/words-desktop.webp" alt="" fill sizes="100vw" />
+        <source
+          media="(max-width: 767px)"
+          srcSet="/images/words-mobile-2x.webp"
+        />
+        <Image
+          src="/images/words-desktop-2x.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={90}
+        />
       </picture>
       <blockquote ref={quote} className="words-quote">
         “We don’t just capture moments. We create images that will live far
