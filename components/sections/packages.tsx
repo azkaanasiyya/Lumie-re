@@ -335,7 +335,6 @@ export function Packages() {
               <div
                 className="package-gallery-window"
                 hidden={!active}
-                data-lenis-prevent
               >
                 <div
                   ref={(element) => {
@@ -343,7 +342,6 @@ export function Packages() {
                   }}
                   id={`package-gallery-${collection.id}`}
                   className="package-gallery"
-                  data-lenis-prevent
                   role="region"
                   aria-labelledby={`package-selector-${collection.id}`}
                   hidden={!active}
