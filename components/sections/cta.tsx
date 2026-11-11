@@ -57,11 +57,15 @@ export function Cta() {
     <section id="contact" className="cta" aria-labelledby="cta-title">
       <div className="cta-image">
         <picture>
-          <source media="(max-width: 767px)" srcSet="/images/cta-mobile.webp" />
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/cta-mobile-2x.webp"
+          />
           <Image
-            src="/images/cta-desktop.webp"
+            src="/images/cta-desktop-2x.webp"
             alt="Four models in tailored suits during a studio photography session"
             fill
+            quality={90}
             sizes="(max-width: 767px) 100vw, 50vw"
           />
         </picture>
