@@ -169,12 +169,7 @@ button:focus-visible {
   top: 100%;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  :is(
-      .desktop-navigation a,
-      .menu-panel nav a,
-      .footer-column li,
-      .package-selector
-    ):hover
+  :is(.desktop-navigation a, .menu-panel nav a, .footer-column li):hover
     .hover-text-track {
     animation: menu-text-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }

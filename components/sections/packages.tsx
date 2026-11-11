@@ -9,7 +9,6 @@ import {
   useState,
 } from "react";
 import { gsap } from "@/lib/animation";
-import { HoverText } from "@/components/ui/hover-text";
 
 type GallerySlide = { image: number; alt: string } | null;
 
@@ -323,16 +322,14 @@ export function Packages() {
                   onClick={() => selectCollection(index)}
                 >
                   <span className="package-number">
-                    <HoverText>{String(index + 1).padStart(2, "0")}</HoverText>
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="package-name">
-                    <HoverText>{collection.title}</HoverText>{" "}
-                    <span className="package-suffix">
-                      <HoverText>Collection</HoverText>
-                    </span>
+                    {collection.title}{" "}
+                    <span className="package-suffix">Collection</span>
                   </span>
                   <span className="package-arrow" aria-hidden="true">
-                    <HoverText>↗</HoverText>
+                    ↗
                   </span>
                 </button>
               </h3>
