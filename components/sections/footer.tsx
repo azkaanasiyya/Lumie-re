@@ -59,7 +59,7 @@ export function Footer() {
         </div>
       </div>
       <p className="footer-copyright">
-        © 2025 Lumière Studio. All rights reserved.
+        © 2026 Lumière Studio. All rights reserved.
       </p>
       <p className="footer-statement">
         Each image is styled with the precision of couture, photographed with
