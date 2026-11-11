@@ -621,9 +621,11 @@ button:focus-visible {
     --featured-hover-offset: 6px;
     --featured-hover-duration: 0.55s;
   }
+  .featured-work-title,
   .featured-work-image {
     transition: transform var(--featured-hover-duration) ease;
   }
+  .featured-work:hover .featured-work-title,
   .featured-work:hover .featured-work-image {
     transform: translateY(calc(-1 * var(--featured-hover-offset)));
   }
