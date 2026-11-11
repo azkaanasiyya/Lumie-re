@@ -267,7 +267,7 @@ export function Packages() {
       if (cancelled) return;
       animation = gsap.to(element, {
         clipPath: "inset(0% 0% 0% 0%)",
-        duration: 0.7,
+        duration: 0.4,
         ease: "power3.inOut",
         clearProps: "clipPath",
         onComplete: () => snapshot!.element.remove(),
