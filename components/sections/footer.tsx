@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { navigation } from "@/lib/navigation";
+import { HoverText } from "@/components/ui/hover-text";
 
 const socialLinks = [
   { label: "Instagram", href: process.env.NEXT_PUBLIC_INSTAGRAM_URL },
@@ -24,7 +25,9 @@ export function Footer() {
           <ul>
             {navigation.map((label) => (
               <li key={label}>
-                <a href={`#${label.toLowerCase()}`}>{label}</a>
+                <a href={`#${label.toLowerCase()}`}>
+                  <HoverText>{label}</HoverText>
+                </a>
               </li>
             ))}
           </ul>
@@ -35,9 +38,11 @@ export function Footer() {
             {socialLinks.map((link) => (
               <li key={link.label}>
                 {link.href ? (
-                  <a href={link.href}>{link.label}</a>
+                  <a href={link.href}>
+                    <HoverText>{link.label}</HoverText>
+                  </a>
                 ) : (
-                  <span>{link.label}</span>
+                  <HoverText>{link.label}</HoverText>
                 )}
               </li>
             ))}
@@ -49,9 +54,11 @@ export function Footer() {
             {legalLinks.map((link) => (
               <li key={link.label}>
                 {link.href ? (
-                  <a href={link.href}>{link.label}</a>
+                  <a href={link.href}>
+                    <HoverText>{link.label}</HoverText>
+                  </a>
                 ) : (
-                  <span>{link.label}</span>
+                  <HoverText>{link.label}</HoverText>
                 )}
               </li>
             ))}

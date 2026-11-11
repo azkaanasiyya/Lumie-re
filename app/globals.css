@@ -154,6 +154,34 @@ button:focus-visible {
 .desktop-navigation nav a:hover {
   opacity: var(--muted-opacity);
 }
+.hover-text {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.hover-text-track {
+  display: block;
+  position: relative;
+}
+.hover-text-copy {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :is(.desktop-navigation a, .menu-panel nav a, .footer-column li):hover
+    .hover-text-track {
+    animation: menu-text-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@keyframes menu-text-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
 .hero-image {
   position: absolute;
   left: var(--image-left);

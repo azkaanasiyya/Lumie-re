@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { Brand } from "./brand";
 import { navigation } from "@/lib/navigation";
+import { HoverText } from "./hover-text";
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -60,7 +61,7 @@ export function Navbar() {
         }
         onClick={() => mobile && setOpen(false)}
       >
-        {label}
+        <HoverText>{label}</HoverText>
       </a>
     ));
   return (
@@ -70,7 +71,7 @@ export function Navbar() {
         <div className="desktop-navigation">
           <nav aria-label="Main navigation">{links()}</nav>
           <a className="contact-link" href="#contact">
-            <span>Get in touch</span>
+            <HoverText>Get in touch</HoverText>
             <Image
               src="/icons/arrow-up-right.svg"
               width={18}
