@@ -245,9 +245,10 @@ export function Testimonials() {
               aria-label={`${testimonial.title} Collection testimonial`}
             >
               <Image
-                src={`/images/testimonials/${testimonial.id}.webp`}
+                src={`/images/testimonials/${testimonial.id}-2x.webp`}
                 alt=""
                 fill
+                quality={90}
                 sizes="(max-width: 767px) calc(100vw - 32px), 510px"
               />
               <h3 className="testimonial-card-title">
