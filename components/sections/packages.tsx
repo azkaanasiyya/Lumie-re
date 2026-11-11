@@ -332,10 +332,7 @@ export function Packages() {
                   </span>
                 </button>
               </h3>
-              <div
-                className="package-gallery-window"
-                hidden={!active}
-              >
+              <div className="package-gallery-window" hidden={!active}>
                 <div
                   ref={(element) => {
                     galleries.current[index] = element;

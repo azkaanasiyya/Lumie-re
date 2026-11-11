@@ -561,6 +561,19 @@ button:focus-visible {
 .featured-work-title {
   line-height: 1.1;
 }
+.featured-work-title,
+.featured-work-year {
+  overflow: hidden;
+}
+.featured-text-roll {
+  position: relative;
+  display: block;
+}
+.featured-text-copy {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+}
 .featured-work-image {
   overflow: hidden;
 }
@@ -574,6 +587,30 @@ button:focus-visible {
   color: var(--featured-muted);
   line-height: 1;
   text-align: right;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .featured-work {
+    --featured-hover-offset: 6px;
+    --featured-hover-duration: 0.55s;
+  }
+  .featured-work-image {
+    transition: transform var(--featured-hover-duration) ease;
+  }
+  .featured-work:hover .featured-work-image {
+    transform: translateY(calc(-1 * var(--featured-hover-offset)));
+  }
+  .featured-work:hover .featured-text-roll {
+    animation: featured-text-rise var(--featured-hover-duration)
+      cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@keyframes featured-text-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 .featured-work--fragments-of-time {
   left: 50.6944444%;

@@ -130,7 +130,12 @@ export function Featured() {
               className={`featured-work featured-work--${work.slug}`}
             >
               <figcaption className="featured-work-title">
-                {work.title}
+                <span className="featured-text-roll">
+                  <span>{work.title}</span>
+                  <span className="featured-text-copy" aria-hidden="true">
+                    {work.title}
+                  </span>
+                </span>
               </figcaption>
               <div className="featured-work-image">
                 <Image
@@ -144,7 +149,12 @@ export function Featured() {
               </div>
               <p className="featured-work-year">
                 <span className="sr-only">Year: </span>
-                {work.year}
+                <span className="featured-text-roll">
+                  <span>{work.year}</span>
+                  <span className="featured-text-copy" aria-hidden="true">
+                    {work.year}
+                  </span>
+                </span>
               </p>
             </figure>
           ))}
