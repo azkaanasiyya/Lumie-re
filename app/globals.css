@@ -225,6 +225,13 @@ button:focus-visible {
 .menu-panel {
   position: relative;
   background: var(--menu-background);
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent calc(var(--grid-left) - var(--grid-size)),
+    transparent calc(var(--grid-left) - var(--line)),
+    var(--grid-color) calc(var(--grid-left) - var(--line)),
+    var(--grid-color) var(--grid-left)
+  );
   height: var(--menu-height);
   padding: var(--space-xl) var(--space-md);
   display: flex;
