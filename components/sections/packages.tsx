@@ -360,9 +360,10 @@ export function Packages() {
                         onClick={() => selectSlide(slideIndex)}
                       >
                         <Image
-                          src={`/images/packages/${collection.id}-${slide.image}.webp`}
-                          width={510}
-                          height={592}
+                          src={`/images/packages/${collection.id}-${slide.image}-2x.webp`}
+                          width={1020}
+                          height={1184}
+                          quality={90}
                           alt={slide.alt}
                           sizes="(max-width: 767px) 217px, 36vw"
                         />
