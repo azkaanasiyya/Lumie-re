@@ -50,6 +50,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }
 body {
   margin: 0;
@@ -1281,6 +1285,16 @@ button:focus-visible {
 }
 .cta-image img {
   object-fit: cover;
+}
+.cta-image picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cta-image picture {
+    will-change: transform;
+  }
 }
 .cta-panel {
   position: relative;

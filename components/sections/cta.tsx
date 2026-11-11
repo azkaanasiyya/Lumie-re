@@ -6,7 +6,48 @@ import { gsap } from "@/lib/animation";
 
 export function Cta() {
   const content = useRef<HTMLDivElement>(null);
+  const image = useRef<HTMLDivElement>(null);
   const contactUrl = process.env.NEXT_PUBLIC_CONTACT_URL || "#contact";
+
+  useEffect(() => {
+    const container = image.current;
+    const picture = container?.querySelector("picture");
+    if (!container || !picture) return;
+    const media = gsap.matchMedia();
+    media.add(
+      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+      () => {
+        gsap.set(picture, { scale: 1.06 });
+        const moveX = gsap.quickTo(picture, "xPercent", {
+          duration: 0.6,
+          ease: "power3.out",
+        });
+        const moveY = gsap.quickTo(picture, "yPercent", {
+          duration: 0.6,
+          ease: "power3.out",
+        });
+        function move(event: PointerEvent) {
+          if (event.pointerType === "touch") return;
+          const bounds = container!.getBoundingClientRect();
+          moveX(((event.clientX - bounds.left) / bounds.width - 0.5) * 4);
+          moveY(((event.clientY - bounds.top) / bounds.height - 0.5) * 4);
+        }
+        function reset() {
+          moveX(0);
+          moveY(0);
+        }
+        container.addEventListener("pointermove", move);
+        container.addEventListener("pointerleave", reset);
+        container.addEventListener("pointercancel", reset);
+        return () => {
+          container.removeEventListener("pointermove", move);
+          container.removeEventListener("pointerleave", reset);
+          container.removeEventListener("pointercancel", reset);
+        };
+      },
+    );
+    return () => media.revert();
+  }, []);
 
   useEffect(() => {
     const element = content.current;
@@ -55,7 +96,7 @@ export function Cta() {
 
   return (
     <section id="contact" className="cta" aria-labelledby="cta-title">
-      <div className="cta-image">
+      <div ref={image} className="cta-image">
         <picture>
           <source
             media="(max-width: 767px)"
