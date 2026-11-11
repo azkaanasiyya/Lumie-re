@@ -68,12 +68,13 @@ export function Hero() {
           <picture className="hero-slide">
             <source
               media="(max-width: 767px)"
-              srcSet="/images/hero-mobile.png"
+              srcSet="/images/hero/slide-1-mobile-2x.webp"
             />
             <Image
-              src="/images/hero/slide-1.webp"
+              src="/images/hero/slide-1-2x.webp"
               alt="Fashion portrait of a woman wearing a black hat and ornate silver earrings"
               fill
+              quality={90}
               sizes="(max-width: 767px) 180vh, 100vw"
               preload
             />
@@ -85,9 +86,10 @@ export function Hero() {
               aria-hidden="true"
             >
               <Image
-                src={`/images/hero/slide-${slide}.webp`}
+                src={`/images/hero/slide-${slide}-2x.webp`}
                 alt=""
                 fill
+                quality={90}
                 sizes="(max-width: 767px) 180vh, 100vw"
                 loading="eager"
               />
