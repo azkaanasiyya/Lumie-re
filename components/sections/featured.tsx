@@ -134,10 +134,11 @@ export function Featured() {
               </figcaption>
               <div className="featured-work-image">
                 <Image
-                  src={`/images/${work.slug}.webp`}
+                  src={`/images/${work.slug}-2x.webp`}
                   alt={work.alt}
                   width={work.width}
                   height={work.height}
+                  quality={90}
                   sizes="(max-width: 767px) 100vw, 30vw"
                 />
               </div>
