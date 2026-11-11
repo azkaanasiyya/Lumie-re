@@ -5,13 +5,31 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/animation";
 
 export function Words() {
+  const section = useRef<HTMLElement>(null);
+  const image = useRef<HTMLPictureElement>(null);
   const quote = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
     const element = quote.current;
-    if (!element) return;
+    const container = section.current;
+    const background = image.current;
+    if (!element || !container || !background) return;
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(
+        background,
+        { yPercent: -8 },
+        {
+          yPercent: 8,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        },
+      );
       gsap.fromTo(
         element,
         { autoAlpha: 0, y: 40 },
@@ -33,8 +51,8 @@ export function Words() {
   }, []);
 
   return (
-    <section className="words" aria-label="Our philosophy">
-      <picture className="words-image">
+    <section ref={section} className="words" aria-label="Our philosophy">
+      <picture ref={image} className="words-image">
         <source
           media="(max-width: 767px)"
           srcSet="/images/words-mobile-2x.webp"
